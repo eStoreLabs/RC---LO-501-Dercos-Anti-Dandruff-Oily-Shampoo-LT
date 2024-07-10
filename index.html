@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="et">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vichy</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Spartan:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      #es-vichy.es-vichy {
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 0;
+        color: #2b2a29;
+        font-family: 'Spartan', sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 1.2;
+        max-width: 850px;
+        overflow: hidden;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      h2,
+      h3,
+      h4,
+      h5 {
+        color: #111;
+        font-family: 'Spartan', sans-serif;
+      }
+
+      .es-kv {
+        background: #fff;
+      }
+
+      .es-kv__images {
+        position: relative;
+        margin: 0 5%;
+      }
+
+      .es-kv__logo {
+        position: absolute;
+        right: 0;
+        bottom: 50px;
+        width: 80px;
+      }
+
+      .es-kv__heading {
+        margin-left: 10px;
+        font-weight: 300;
+      }
+
+      .es-kv__text {
+        margin: 0 10px;
+        display: flex;
+        justify-content: center;
+        font-size: 13px;
+      }
+
+      .es-kv__disclaimer {
+        margin: 30px 10px 0 10px;
+        font-size: 8px;
+        text-align: center;
+      }
+
+      .es-kv__label {
+        -o-object-fit: contain;
+        object-fit: contain;
+      }
+
+      .es-kv__header {
+        margin: 0;
+        padding: 10px 0 0 0;
+        font-size: 40px;
+        text-align: center;
+        letter-spacing: 14px;
+      }
+
+      .es-kv__subheader {
+        font-size: 13px;
+        text-align: center;
+      }
+
+      .es-kv__animated-items {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url('assets/background.png') top/contain no-repeat;
+      }
+
+      .es-kv__background {
+        z-index: -1;
+      }
+
+      .es-kv__animated-item {
+        opacity: 0;
+        -webkit-animation: slidedown 0.6s ease forwards;
+        animation: slidedown 0.6s ease forwards;
+        -webkit-animation-delay: 0.3s;
+        animation-delay: 0.3s;
+      }
+
+      .es-kv__disc {
+        font-size: 9px;
+        margin: 0;
+        padding: 0;
+        color: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        text-align: center;
+      }
+
+      .es-kv__photo {
+        position: relative;
+      }
+
+      .es-kv__img {
+        margin: 0 auto;
+        display: block;
+        max-width: 100%;
+      }
+
+      .es-kv__img--photo {
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+
+      .es-kv__content {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-top: 20px;
+        background: url('assets/photo.jpg') center/cover no-repeat;
+      }
+
+      .es-kv__title {
+        margin: 0 0 100px 0;
+        padding: 32px 24px;
+        color: #fff;
+        font-weight: 200;
+        font-size: 23px;
+        text-transform: uppercase;
+        text-align: right;
+        opacity: 0;
+        -webkit-animation: slideright 0.6s ease forwards;
+        animation: slideright 0.6s ease forwards;
+        -webkit-animation-delay: 0.3s;
+        animation-delay: 0.3s;
+      }
+
+      .es-kv__title sup {
+        font-size: 10px;
+        vertical-align: top;
+      }
+
+      .es-info {
+        margin: 0 auto;
+        margin-bottom: 32px;
+        padding: 60px 16px 32px 16px;
+        max-width: 730px;
+      }
+
+      .es-info__disclaimer {
+        margin-top: 50px;
+        font-size: 8px;
+        text-align: center;
+      }
+
+      .es-info__border {
+        position: relative;
+        margin-bottom: 32px;
+        padding: 24px 16px;
+      }
+
+      .es-info__border::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: url('assets/border-1.png');
+      }
+
+      .es-info__border::after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        content: url('assets/border-2.png');
+      }
+
+      .es-info__title {
+        margin-bottom: 32px;
+        font-weight: 200;
+        font-size: 20px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .es-info__title span {
+        display: block;
+        padding-top: 16px;
+        font-weight: 700;
+      }
+
+      .es-info__desc {
+        font-size: 15px;
+        margin: 0;
+        padding: 0;
+        color: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        text-align: center;
+        line-height: 1.4;
+      }
+
+      .es-info__desc strong {
+        text-transform: uppercase;
+      }
+
+      .es-info__text {
+        font-weight: 700;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .es-info__img {
+        margin: 0 auto;
+        display: block;
+        max-width: 100%;
+      }
+
+      .es-info__features {
+        margin: 0 -8px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .es-info sup {
+        font-size: 10px;
+        vertical-align: text-top;
+      }
+
+      .es-info__single {
+        padding: 0 8px;
+        max-width: 200px;
+      }
+
+      .es-info__single:not(:last-child) {
+        margin-bottom: 32px;
+      }
+
+      .es-info__icon {
+        margin-bottom: 16px;
+      }
+
+      .es-use {
+        padding: 0 16px;
+        background: url('assets/bg-1.png') no-repeat;
+        background-position: 0 bottom;
+        min-height: 750px;
+      }
+
+      .es-use__content {
+        margin: 25px auto 0 auto;
+        max-width: 730px;
+      }
+
+      .es-use__title {
+        font-weight: 700;
+        font-size: 22px;
+        text-transform: uppercase;
+      }
+
+      .es-use__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .es-use__item {
+        position: relative;
+        margin-bottom: 16px;
+        padding-left: 24px;
+      }
+
+      .es-use__item::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: #008d2f;
+        content: '●';
+      }
+
+      .es-banner {
+        margin-top: 50px;
+        margin-bottom: 64px;
+      }
+
+      .es-banner__border {
+        margin-bottom: 16px;
+        padding: 32px 16px;
+        background: linear-gradient(45deg, #286024, #008d2f);
+      }
+
+      .es-banner__title {
+        margin-bottom: 24px;
+        color: #fff;
+        font-weight: 700;
+        font-size: 14px;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.4;
+      }
+
+      .es-banner__container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      .es-banner__single {
+        width: 230px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 16px;
+      }
+
+      .es-banner__single:not(:last-child) {
+        margin-bottom: 24px;
+      }
+
+      .es-banner__text {
+        margin-top: 5px;
+        color: #fff;
+        font-weight: 500;
+        font-size: 12px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .es-banner__text--number {
+        margin-bottom: 0;
+        font-size: 40px;
+        line-height: 1;
+      }
+
+      .es-banner__text span {
+        position: relative;
+        top: -8px;
+        font-weight: 700;
+        font-size: 30px;
+      }
+
+      .es-banner__disclaimer {
+        margin: 30px 0 0 0;
+        font-size: 9px;
+        padding: 0;
+        color: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        text-align: center;
+      }
+
+      .es-ingr {
+        margin-bottom: 64px;
+        padding: 0 16px;
+      }
+
+      .es-ingr__title {
+        margin-bottom: 32px;
+        font-weight: 700;
+        font-size: 22px;
+        text-align: center;
+      }
+
+      .es-ingr__container {
+        margin: 0 -24px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0 12px;
+      }
+
+      .es-ingr__single {
+        padding: 0 12px;
+        max-width: 246px;
+      }
+
+      .es-ingr__single:not(:last-child) {
+        margin-bottom: 32px;
+      }
+
+      .es-ingr__image {
+        margin-bottom: 24px;
+      }
+
+      .es-ingr__img {
+        margin: 0 auto;
+        display: block;
+        max-width: 100%;
+      }
+
+      .es-ingr__text {
+        font-size: 13px;
+        margin: 0;
+        padding: 0;
+        color: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        text-align: center;
+      }
+
+      .es-benefits {
+        padding: 0 16px;
+        background: url('assets/bg-3.png') no-repeat;
+        background-position: 75% bottom;
+        min-height: 1000px;
+      }
+
+      .es-benefits__title {
+        margin-bottom: 40px;
+        font-weight: 700;
+        font-size: 22px;
+        text-align: center;
+      }
+
+      .es-benefits__container {
+        margin: 0 -16px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 0 8px;
+      }
+
+      .es-benefits__disclaimer {
+        margin-top: 50px;
+        font-size: 9px;
+        text-align: center;
+      }
+
+      .es-benefits__single {
+        width: 200px;
+        padding: 0 8px;
+      }
+
+      .es-benefits__single:not(:last-child) {
+        margin-bottom: 32px;
+      }
+
+      .es-benefits__img {
+        margin: 0 auto;
+        display: block;
+        max-width: 100%;
+      }
+
+      .es-benefits__icon {
+        margin-bottom: 16px;
+      }
+
+      .es-benefits__text {
+        font-size: 13px;
+        margin: 0;
+        padding: 0;
+        color: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        text-align: center;
+      }
+
+      .es-rev-banner {
+        margin-bottom: 64px;
+      }
+
+      .es-rev-banner__border {
+        margin-bottom: 32px;
+        background: linear-gradient(45deg, #286024, #008d2f);
+      }
+
+      .es-rev-banner__content {
+        padding: 32px 16px;
+      }
+
+      .es-rev-banner__title {
+        margin-bottom: 24px;
+        color: #fff;
+        font-weight: 700;
+        font-size: 22px;
+        text-transform: uppercase;
+        line-height: 1.4;
+      }
+
+      .es-rev-banner__list {
+        margin: 0;
+        padding: 0;
+        padding-left: 16px;
+      }
+
+      .es-rev-banner__item {
+        color: #fff;
+        font-size: 12px;
+      }
+
+      .es-rev-banner__item:not(:last-child) {
+        margin-bottom: 16px;
+      }
+
+      .es-cross {
+        padding: 0 16px;
+      }
+
+      .es-cross__title {
+        margin-bottom: 40px;
+        font-weight: 700;
+        font-size: 22px;
+        text-transform: uppercase;
+        text-align: center;
+      }
+
+      .es-cross__container {
+        margin: 0 -16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 8px;
+        flex-flow: column;
+      }
+
+      .es-cross__photo--desktop {
+        display: none;
+      }
+
+      .es-cross__packshot {
+        position: relative;
+        z-index: 1;
+      }
+
+      .es-cross__packshot--1::before {
+        position: absolute;
+        z-index: -1;
+        top: -50px;
+        left: -70px;
+        color: #ebebeb;
+        font-family: 'Roboto';
+        font-size: 230px;
+        content: '1';
+        line-height: 1;
+      }
+
+      .es-cross__packshot--2::before {
+        position: absolute;
+        z-index: -1;
+        top: -50px;
+        left: -60px;
+        color: #ebebeb;
+        font-family: 'Roboto';
+        font-size: 230px;
+        content: '2';
+        line-height: 1;
+      }
+
+      .es-cross__packshot--3::before {
+        position: absolute;
+        z-index: -1;
+        top: -50px;
+        left: -60px;
+        color: #ebebeb;
+        font-family: 'Roboto';
+        font-size: 230px;
+        content: '3';
+        line-height: 1;
+      }
+
+      .es-cross__img {
+        margin: 0 auto;
+        display: block;
+        max-width: 100%;
+      }
+
+      .es-cross__single {
+        margin-bottom: 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 8px;
+        max-width: 250px;
+        flex-flow: column;
+      }
+
+      .es-cross__single:hover .es-cross__icon {
+        transform: scale(1.2);
+      }
+
+      .es-cross__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-flow: column;
+        flex-grow: 1;
+      }
+
+      .es-cross__subtitle {
+        margin-bottom: 16px;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+        color: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        text-align: center;
+      }
+
+      .es-cross__subtitle strong {
+        display: block;
+      }
+
+      .es-cross__text {
+        margin-bottom: 16px;
+        font-weight: 200;
+        font-size: 12px;
+        text-align: center;
+      }
+
+      .es-cross__link {
+        margin-bottom: 16px;
+        border: 1px solid #008d2f;
+        padding: 6px 24px;
+        color: #fff;
+        font-weight: 700;
+        font-size: 10px;
+        background: #008d2f;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+      }
+
+      .es-cross__link:hover {
+        color: #008d2f;
+        background: #fff;
+      }
+
+      @media screen and (min-width: 415px) {
+        .es-kv__images {
+          margin: 0 15%;
+        }
+
+        .es-use__content {
+          margin-left: 80px;
+        }
+      }
+
+      @media screen and (min-width: 520px) {
+        .es-kv__images {
+          margin: 0 20%;
+        }
+      }
+
+      @media screen and (min-width: 560px) {
+        .es-cross__container {
+          flex-wrap: wrap;
+          align-items: stretch;
+          flex-flow: row;
+        }
+
+        .es-cross__photo--desktop {
+          display: block;
+        }
+
+        .es-cross__packshot {
+          display: none;
+        }
+
+        .es-cross__single {
+          max-width: 50%;
+        }
+
+        .es-kv__images {
+          margin: 0 22%;
+        }
+
+        .es-kv__animated-items {
+          height: 450px;
+        }
+      }
+
+      @media screen and (min-width: 720px) {
+        .es-ingr__single {
+          width: 24%;
+        }
+
+        .es-kv {
+          display: flex;
+          max-height: 550px;
+        }
+
+        .es-kv__images {
+          margin: 0;
+          width: 50%;
+          height: auto;
+          display: flex;
+          justify-content: space-between;
+          padding: 0 3%;
+          flex-flow: column;
+          flex: 1;
+          flex-basis: 50%;
+          background-size: cover;
+        }
+
+        .es-kv__header {
+          font-size: 50px;
+        }
+
+        .es-kv__logo {
+          right: 5%;
+          bottom: 10%;
+        }
+
+        .es-kv__content {
+          height: 90%;
+        }
+
+        .es-kv__photo {
+          width: 50%;
+          order: -1;
+          flex: 1;
+          flex-basis: 50%;
+        }
+
+        .es-kv__title {
+          font-size: 26px;
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        .es-info__border {
+          margin-bottom: 100px;
+        }
+
+        .es-info__single {
+          width: 24%;
+        }
+
+        .es-info__disclaimer {
+          margin-top: 0;
+        }
+
+        .es-use {
+          margin-top: -150px;
+          margin-bottom: 0px;
+          display: flex;
+          align-items: center;
+          background-position: center;
+          min-height: 700px;
+        }
+
+        .es-use__content {
+          margin-top: 115px;
+          margin-right: 30px;
+          margin-left: auto;
+          padding-top: 0;
+          max-width: 300px;
+        }
+
+        .es-banner {
+          margin-bottom: 100px;
+          display: flex;
+          align-items: center;
+          background: url('assets/bg-2.png') no-repeat center;
+          min-height: 326px;
+        }
+
+        .es-banner__content {
+          margin-bottom: 16px;
+          max-width: 590px;
+        }
+
+        .es-banner__disclaimer {
+          margin-left: -50px;
+        }
+
+        .es-banner__container {
+          flex-direction: row;
+          justify-content: space-around;
+        }
+
+        .es-banner__border {
+          margin-left: 45px;
+          width: 500px;
+        }
+
+        .es-banner__single:not(:last-child) {
+          margin-bottom: 0;
+        }
+
+        .es-ingr {
+          margin-bottom: 0;
+        }
+
+        .es-ingr__title {
+          margin-bottom: 64px;
+        }
+
+        .es-ingr__container {
+          margin: 0 auto;
+          justify-content: space-between;
+          padding: 0;
+          max-width: 730px;
+        }
+
+        .es-ingr__single {
+          padding: 0;
+          max-width: 230px;
+        }
+
+        .es-ingr__single:not(:last-child) {
+          margin-bottom: 0;
+        }
+
+        .es-rev-banner {
+          margin-top: -60px;
+          margin-bottom: 100px;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          background: url('assets/bg-4.png') no-repeat center;
+          min-height: 350px;
+        }
+
+        .es-rev-banner__border {
+          margin-right: 60px;
+          margin-bottom: 0;
+        }
+
+        .es-rev-banner__content {
+          padding: 32px 43px;
+          max-width: 365px;
+        }
+
+        .es-rev-banner__single:first-child {
+          margin-bottom: 0;
+        }
+
+        .es-cross__single {
+          max-width: 300px;
+        }
+
+        .es-cross__subtitle {
+          min-height: 37px;
+        }
+
+        .es-cross__text {
+          min-height: 70px;
+        }
+      }
+
+      @media screen and (min-width: 860px) {
+        .es-kv__images {
+          padding: 0 2%;
+        }
+
+        .es-kv__logo {
+          right: 15%;
+          width: 90px;
+        }
+
+        .es-kv__header {
+          font-size: 60px;
+        }
+
+        .es-kv__content {
+          height: 95%;
+        }
+
+        .es-kv__subheader {
+          margin-top: 0;
+          font-size: 12px;
+          white-space: nowrap;
+        }
+
+        .es-kv__animated-item {
+          margin-top: 50px;
+          height: 450px;
+        }
+      }
+
+      @media screen and (min-width: 920px) {
+        .es-use {
+          background-position: left;
+          background-size: cover;
+          min-height: 670px;
+        }
+
+        .es-use__content {
+          margin-top: 125px;
+          margin-right: 5px;
+          max-width: 350px;
+        }
+
+        .es-banner__disclaimer {
+          margin-left: 100px;
+        }
+      }
+
+      @media screen and (min-width: 820px) {
+        .es-info__features {
+          margin-left: -50px;
+          width: calc(100% + 100px);
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        .es-benefits {
+          margin-top: -20px;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          background-position: center;
+          background-size: cover;
+          min-height: 700px;
+        }
+
+        .es-benefits__container {
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: flex-start;
+        }
+
+        .es-benefits__disclaimer {
+          margin-top: 0;
+          transform: translateY(140px);
+        }
+
+        .es-benefits__content {
+          margin-bottom: 150px;
+          margin-left: 35px;
+          max-width: 450px;
+        }
+
+        .es-benefits__single {
+          flex: 1 50%;
+          max-width: 153px;
+        }
+      }
+
+      @media screen and (min-width: 880px) {
+        .es-benefits {
+          margin-top: 20px;
+        }
+
+        .es-benefits__content {
+          margin-left: 30px;
+        }
+      }
+
+      @-webkit-keyframes slidedown {
+        from {
+          opacity: 0;
+          transform: translateY(-32px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slidedown {
+        from {
+          opacity: 0;
+          transform: translateY(-32px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @-webkit-keyframes slideright {
+        from {
+          opacity: 0.3;
+          transform: translateX(-100px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideright {
+        from {
+          opacity: 0.3;
+          transform: translateX(-100px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        #es-vichy.es-vichy .es-banner__content {
+          padding-top: 48px;
+        }
+
+        #es-vichy.es-vichy .es-ingr__single:not(:last-child) {
+          margin-bottom: 32px;
+        }
+
+        #es-vichy.es-vichy .es-ingr__container {
+          justify-content: space-between;
+        }
+
+        #es-vichy.es-vichy .es-cross__packshot--1 {
+          max-width: 128px;
+        }
+
+        #es-vichy.es-vichy .es-cross__packshot--2 {
+          max-width: 175px;
+        }
+
+        #es-vichy.es-vichy .es-cross__packshot--3 {
+          max-width: 190px;
+        }
+      }
+
+      .es-ingr__image {
+        position: relative;
+      }
+
+      .es-ingr__label {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding: 14px 16px;
+        font-weight: 700;
+        font-size: 12px;
+        background: rgba(255, 255, 255, 0.66);
+        transform: translate(-50%, -50%);
+        text-align: center;
+        min-width: 155px;
+      }
+
+      /*# sourceMappingURL=style.css.map */
+    </style>
+  </head>
+
+  <body>
+    <div class="es-vichy" id="es-vichy">
+      <section class="es-kv">
+        <div class="es-kv__images">
+          <div class="es-kv__packshot">
+            <h2 class="es-kv__header">DERCOS</h2>
+            <h3 class="es-kv__subheader">
+              DERMATOLOGINIS PLAUKŲ IR GALVOS ODOS EKSPERTAS
+            </h3>
+            <div class="es-kv__animated-items">
+              <img
+                src="assets/bottle.png"
+                alt=""
+                class="es-kv__animated-item"
+              />
+            </div>
+          </div>
+          <img class="es-kv__logo" src="assets/logo.png" alt="" />
+        </div>
+        <div class="es-kv__photo">
+          <div class="es-kv__content">
+            <h2 class="es-kv__title">
+              SUMAŽINA IKI 100% <sup>1</sup><br />
+              PASTEBIMŲ PLEISKANŲ<br />
+              + IKI 6 SAVAIČIŲ<br />
+              BE PASIKARTOJIMO
+              <sup>2</sup>
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      <section class="es-info">
+        <div class="es-info__border">
+          <h3 class="es-info__title">
+            AR ŽINOTE, KAD 50 % PASAULIO GYVENTOJŲ<br />
+            <strong>GALI TURĖTI PROBLEMŲ DĖL PLEISKANŲ?</strong>
+          </h3>
+          <p class="es-info__desc">
+            Atraskite <strong>DERCOS DS</strong> – Vichy šampūną nuo pleiskanų,
+            <br />
+            kuris efektyviai pašalina pleiskanas jau po pirmo panaudojimo.
+          </p>
+        </div>
+        <div class="es-info__features">
+          <div class="es-info__single">
+            <div class="es-info__icon">
+              <img src="assets/check.png" class="es-info__img" alt="" />
+            </div>
+            <p class="es-info__text">
+              Iki 100 % sumažina<br />
+              pastebimas pleiskanas<sup>1</sup>
+            </p>
+          </div>
+          <div class="es-info__single">
+            <div class="es-info__icon">
+              <img src="assets/check.png" class="es-info__img" alt="" />
+            </div>
+            <p class="es-info__text">
+              Apsaugo nuo <br />pasikartojimo per<br />
+              6 savaites<sup>2</sup>
+            </p>
+          </div>
+          <div class="es-info__single">
+            <div class="es-info__icon">
+              <img src="assets/check.png" class="es-info__img" alt="" />
+            </div>
+            <p class="es-info__text">
+              Subalansuoja galvos <br />odos mikrobiotą po <br />4 savaičių
+              naudojimo<sup>3</sup>
+            </p>
+          </div>
+          <div class="es-info__single">
+            <div class="es-info__icon">
+              <img src="assets/check.png" class="es-info__img" alt="" />
+            </div>
+            <p class="es-info__text">Rekomenduoja <br />dermatologai</p>
+          </div>
+        </div>
+        <div class="es-info__disclaimer">
+          <p>
+            <sup>1</sup>262 žmonių, 2 savaites reguliariai naudojusių šampūną,
+            įsivertinimo testas<br />
+            <sup>2</sup>Klinikinis tyrimas, 45 žmonės, kurie naudojo šampūną 4
+            savaites, tyrimas buvo atliktas praėjus 6 savaitėms po naudojimo
+            nutraukimo.<br />
+            <sup>3</sup>Klinikiniai pagrindinių mikroorganizmų, sukeliančių
+            pleiskanas, tyrimai, 56 žmonės, kurie vartojo 3 kartus per savaitę 4
+            savaites.
+          </p>
+        </div>
+      </section>
+
+      <section class="es-use">
+        <div class="es-use__content">
+          <h3 class="es-use__title">NAUDOTI</h3>
+          <ul class="es-use__list">
+            <li class="es-use__item">
+              Norite greitai ir ilgam atsikratyti pleiskanų.
+            </li>
+            <li class="es-use__item">Turite sausus plaukus.</li>
+            <li class="es-use__item">Jūsų galvos oda jautri.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="es-banner">
+        <div class="es-banner__content">
+          <div class="es-banner__border">
+            <h3 class="es-banner__title">STEBĖJIMAI</h3>
+            <div class="es-banner__container">
+              <div class="es-banner__single">
+                <p class="es-banner__text es-banner__text--number">
+                  95<span>%</span>
+                </p>
+                <p class="es-banner__text">
+                  PACIENTŲ TEIGIA,<br />
+                  KAD KONSISTENCIJA MALONI<sup>4</sup>
+                </p>
+              </div>
+              <div class="es-banner__single">
+                <p class="es-banner__text es-banner__text--number">
+                  88<span>%</span>
+                </p>
+                <p class="es-banner__text">
+                  PACIENTŲ TEIGIA,<br />
+                  KAD KVAPAS YRA <br />MALONUS <sup>4</sup>
+                </p>
+              </div>
+            </div>
+          </div>
+          <p class="es-banner__disclaimer">
+            <sup>4</sup>1619 pacientų stebėjimas
+          </p>
+        </div>
+      </section>
+
+      <section class="es-ingr">
+        <h3 class="es-ingr__title">
+          GALINGA FORMULĖ SU AKTYVIAIS KOMPONENTAIS
+        </h3>
+        <div class="es-ingr__container">
+          <div class="es-ingr__single">
+            <div class="es-ingr__image">
+              <p class="es-ingr__label">1%&nbsp;SELENODISULFIDO</p>
+              <img src="assets/ingr-2.png" alt="" class="es-ingr__img" />
+            </div>
+            <p class="es-ingr__text">
+              mikrobiotos pusiausvyrai atkurti ir pašalinti pleiskanas.
+            </p>
+          </div>
+          <div class="es-ingr__single">
+            <div class="es-ingr__image">
+              <p class="es-ingr__label">1%&nbsp;SALICILO RŪGŠTIS</p>
+              <img src="assets/ingr-3.png" alt="" class="es-ingr__img" />
+            </div>
+            <p class="es-ingr__text">
+              su keratolitiniu poveikiu, padedančiu pašalinti negyvas epidermio
+              ląsteles.
+            </p>
+          </div>
+          <div class="es-ingr__single">
+            <div class="es-ingr__image">
+              <p class="es-ingr__label">KERAMIDAS&nbsp;R</p>
+              <img src="assets/ingr-1.png" alt="" class="es-ingr__img" />
+            </div>
+            <p class="es-ingr__text">
+              apsauginės galvos odos funkcijos išsaugojimui.
+            </p>
+          </div>
+          <div class="es-ingr__single">
+            <div class="es-ingr__image">
+              <p class="es-ingr__label">
+                TOKOFEROLIO<br />
+                DARINYS
+              </p>
+              <img src="assets/ingr-4.png" alt="" class="es-ingr__img" />
+            </div>
+            <p class="es-ingr__text">
+              su savybėmis, kurios sumažina odos diskomfortą.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="es-benefits">
+        <div class="es-benefits__content">
+          <h3 class="es-benefits__title">
+            AUKŠTO TOLERAVIMO <br />
+            GARANTIJA
+          </h3>
+          <div class="es-benefits__container">
+            <div class="es-benefits__single">
+              <div class="es-benefits__icon">
+                <img src="assets/icon-1.png" alt="" class="es-benefits__img" />
+              </div>
+              <p class="es-benefits__text">Hipoalerginė formulė</p>
+            </div>
+            <div class="es-benefits__single">
+              <div class="es-benefits__icon">
+                <img src="assets/icon-2.png" alt="" class="es-benefits__img" />
+              </div>
+              <p class="es-benefits__text">Išbandyta prižiūrint dermatologui</p>
+            </div>
+            <div class="es-benefits__single">
+              <div class="es-benefits__icon">
+                <img src="assets/icon-3.png" alt="" class="es-benefits__img" />
+              </div>
+              <p class="es-benefits__text">Tinka jautriai odai</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="es-rev-banner">
+        <div class="es-rev-banner__border">
+          <div class="es-rev-banner__content">
+            <h3 class="es-rev-banner__title">TAIKYMO BŪDAS</h3>
+            <ol class="es-rev-banner__list">
+              <li class="es-rev-banner__item">
+                Tepkite ant drėgnų plaukų ir galvos odos, įmasažuokite, palikite
+                2 minutėms, tada išskalaukite.
+              </li>
+              <li class="es-rev-banner__item">
+                Naudokite 3 kartus per savaitę, kad pašalintumėte pleiskanas, ir
+                vieną kartą per savaitę, kad išlaikytumėte efektą.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="es-cross">
+        <h3 class="es-cross__title">
+          PLAUKŲ IR GALVOS ODOS, LINKUSIOS <br />
+          Į PLEISKANŲ ATSIRADIMĄ, PRIEŽIŪRA
+        </h3>
+        <div class="es-cross__photo es-cross__photo--desktop">
+          <img src="assets/packshots.png" alt="" class="es-cross__img" />
+        </div>
+        <div class="es-cross__container">
+          <div class="es-cross__single">
+            <div class="es-cross__packshot es-cross__packshot--1">
+              <img src="assets/cross-1.png" alt="" class="es-cross__img" />
+            </div>
+            <h4 class="es-cross__subtitle">
+              <strong>VALOMASIS ŠAMPŪNAS<br /> </strong>NUO PLEISKANŲ
+            </h4>
+            <div class="es-cross__wrapper">
+              <p class="es-cross__text">
+                Formulė pH 5,5 (arti natūralaus galvos odos pH) padeda kovoti su
+                matomomis pleiskanomis, atsirandančiomis dėl odos mikrobiotos
+                disbalanso.
+              </p>
+              <a href="#" target="_blank" class="es-cross__link">tutvu</a>
+            </div>
+          </div>
+          <div class="es-cross__single">
+            <div class="es-cross__packshot es-cross__packshot--2">
+              <img src="assets/cross-2.png" alt="" class="es-cross__img" />
+            </div>
+            <h4 class="es-cross__subtitle">
+              <strong>ULTRA RAMINAMASIS ŠAMPŪNAS<br /> </strong>SAUSIEMS
+              PLAUKAMS
+            </h4>
+            <div class="es-cross__wrapper">
+              <p class="es-cross__text">
+                Akimirksniu nuramina jautrią galvos odą ir sumažina niežėjimą,
+                užtikrina komfortą iki 48 valandų.
+              </p>
+              <a href="#" target="_blank" class="es-cross__link">tutvu</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
